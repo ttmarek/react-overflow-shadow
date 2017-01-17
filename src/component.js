@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 
-function sum(a, b) {
-  return a + b;
-}
+function getVerticalOverflowState(container) {
+  const {
+    clientHeight,
+    scrollTop,
+    scrollHeight,
+  } = container;
+
+  const hasRoomToScroll = scrollHeight !== clientHeight;
+  const isOnTopEdge = (scrollTop === 0);
+  const isOnBottomEdge = (scrollTop === (scrollHeight - clientHeight));
+  const isBetweenEdges = !isOnTopEdge && !isOnBottomEdge;
+
+  const hasOverflowTop = hasRoomToScroll && (isOnBottomEdge || isBetweenEdges);
+  const hasOverflowBottom = hasRoomToScroll && (isOnTopEdge || isBetweenEdges);
+
+  return { hasOverflowTop, hasOverflowBottom };
+};
 
 class OverflowShadow extends Component {
   render() {
@@ -12,5 +26,5 @@ class OverflowShadow extends Component {
 
 export {
   OverflowShadow,
-  sum,
+  getVerticalOverflowState,
 };
