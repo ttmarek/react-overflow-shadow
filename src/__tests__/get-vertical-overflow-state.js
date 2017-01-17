@@ -1,4 +1,4 @@
-import { getVerticalOverflowState } from '../component';
+import { getVerticalOverflowState } from '../get-vertical-overflow-state';
 
 describe('When there is no vertical overflow', () => {
   it('returns { hasOverflowTop: false, hasOverflowBottom: false }', () => {
