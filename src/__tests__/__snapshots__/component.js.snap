@@ -1,0 +1,5 @@
+exports[`happy path matches the snapshot 1`] = `
+<div>
+  Hello
+</div>
+`;
