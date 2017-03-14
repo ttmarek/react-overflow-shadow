@@ -1,5 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`happy path matches the snapshot 1`] = `
-<div>
-  Hello
+<div
+  style={
+    Object {
+      "overflow": "hidden",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginRight": "-50px",
+        "marginTop": "-50px",
+        "maxHeight": "100%",
+        "paddingRight": "50px",
+        "paddingTop": "50px",
+        "position": "relative",
+      }
+    }
+  />
 </div>
 `;

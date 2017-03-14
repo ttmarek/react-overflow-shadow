@@ -1,67 +1,54 @@
 import { getHorizontalOverflowState } from '../get-horizontal-overflow-state';
 
-describe('When there is no horizontal overflow', () => {
-  it('returns { hasOverflowLeft: false, hasOverflowRight: false }', () => {
+describe('getHorizontalOverflowState(container)', () => {
+  test('no horizontal overflow', () => {
     const container = {
       clientWidth: 100,
       scrollLeft: 0,
       scrollWidth: 100,
     };
 
-    const state = getHorizontalOverflowState(container);
-
-    expect(state).toEqual({
+    expect(getHorizontalOverflowState(container)).toEqual({
       hasOverflowLeft: false,
       hasOverflowRight: false,
     });
   });
-});
 
-describe('When there is overflow on the right edge', () => {
-  it('returns { hasOverflowLeft: false, hasOverflowRight: true }', () => {
+  test('overflow on the right edge', () => {
     const container = {
       clientWidth: 100,
       scrollLeft: 0,
       scrollWidth: 200,
     };
 
-    const state = getHorizontalOverflowState(container);
-
-    expect(state).toEqual({
+    expect(getHorizontalOverflowState(container)).toEqual({
       hasOverflowLeft: false,
       hasOverflowRight: true,
     });
   });
-});
 
-describe('When there is overflow on the left edge', () => {
-  it('returns { hasOverflowLeft: true, hasOverflowRight: false }', () => {
+  test('overflow on the left edge', () => {
     const container = {
       clientWidth: 100,
       scrollLeft: 100,
       scrollWidth: 200,
     };
 
-    const state = getHorizontalOverflowState(container);
-
-    expect(state).toEqual({
+    expect(getHorizontalOverflowState(container)).toEqual({
       hasOverflowLeft: true,
       hasOverflowRight: false,
     });
   });
-});
 
-describe('When there is overflow on both the left and right edges', () => {
-  it('returns { hasOverflowLeft: true, hasOverflowRight: true }', () => {
+
+  test('overflow on both the left and right edges', () => {
     const container = {
       clientWidth: 100,
       scrollLeft: 50,
       scrollWidth: 200,
     };
 
-    const state = getHorizontalOverflowState(container);
-
-    expect(state).toEqual({
+    expect(getHorizontalOverflowState(container)).toEqual({
       hasOverflowLeft: true,
       hasOverflowRight: true,
     });
